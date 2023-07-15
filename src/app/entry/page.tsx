@@ -8,7 +8,7 @@ import sendData from "../api/firebase/firestore/sendData";
 
 
 
-function Page() {
+export default function Page() {
     const user = useAuthContext()
     const router = useRouter()
     const [name, setName] = React.useState('')
@@ -79,5 +79,3 @@ function Page() {
 
     );
 }
-
-export default Page;

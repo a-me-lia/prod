@@ -8,7 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import sendData from "./api/firebase/firestore/sendData";
 
-function Page() {
+export default function Page() {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const router = useRouter()
@@ -78,5 +78,3 @@ function Page() {
 
     </div>);
 }
-
-export default Page;

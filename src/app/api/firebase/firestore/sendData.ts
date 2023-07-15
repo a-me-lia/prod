@@ -1,21 +1,25 @@
-import { doc, getFirestore, setDoc } from "firebase/firestore"; 
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 import firebase_app from "../config";
 
-export const db = getFirestore(firebase_app);
-export default async function sendData(data: string) {
-  let result = null;
-  let error = null;
+const database = getDatabase(firebase_app);
 
+import { ref, set } from "firebase/database";
+
+
+let date = new Date().toUTCString().slice(0, 16);
+
+export default async function sendData(name:string) {
+  const db = getDatabase();
+  let result = null,
+  error = null;
   try {
-
-  await setDoc(doc(db, "cities", "LA"), {
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA"
-  });
+    result = await set(ref(db, 'names/' + date), {
+      username: name,
+    });
   } catch (e) {
     error = e;
-  }
+}
 
-  return { result, error };
+return { result, error };
 }
