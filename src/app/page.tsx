@@ -1,5 +1,3 @@
-
-
 'use client'
 import React from "react";
 import signIn from "./api/firebase/auth/signin";
@@ -8,6 +6,7 @@ import Link from "next/link";
 import { signInWithRedirect } from "firebase/auth";
 import { useState } from "react";
 import Image from "next/image";
+import sendData from "./api/firebase/firestore/sendData";
 
 function Page() {
     const [email, setEmail] = React.useState('')
@@ -39,6 +38,8 @@ function Page() {
         console.log(result)
         return router.push("/entry")
     }
+    sendData("hello");
+    
     return (
     <div className="min-h-screen max-h-screen bg-white">
         <div className="flex flex-col items-center z-50">
@@ -56,7 +57,7 @@ function Page() {
                     <input className='border-2 py-1 px-2 min-w-[256px]'onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" />
                 </label>
                 <button type="submit"><div className=" border-2 text-white font-bold text-lg border-amber-200 px-2 py-1.5 w-[256px] rounded-lg bg-amber-400">Sign in</div></button>
-<div  className='w-48'></div>
+                <div  className='w-48'></div>
 
             </form>
 
