@@ -1,24 +1,35 @@
-import Image from 'next/image'
-import Script from 'next/script'
-import getData from '../api/firebase/firestore/getData'
+"use client"
+import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue, off } from "firebase/database";
+import firebase_app from "../api/firebase/config";
 
-export default function ViewNames() {
+let date = new Date().toUTCString().slice(0, 16);
 
+const GetDataComponent = () => {
+  const [names, setNames] = useState<string[]>([]);
 
-      async function spitOutAnArray(){
-        const names = await getData()
+  useEffect(() => {
+    const db = getDatabase(firebase_app);
+    const nameRef = ref(db, 'names/' + date + '/username');
 
-       // console.log(names);
-        return names;
-      }
-      setInterval(spitOutAnArray,10000);
-      
+    const listener = onValue(nameRef, (snapshot) => {
+      setNames(names => [...names, snapshot.val()]);
+      console.log(snapshot.val());
+    });
+
+    return () => {
+      off(nameRef, 'value', listener);  // Removing the listener when the component is unmounted
+    };
+  }, []);
 
   return (
-    <main className="min-h-screen">
-        <div>
-            <h1></h1>
-        </div>
-    </main>
-  )
-}
+    <div>
+      <h1>Data Names:</h1>
+      {names.map((name, index) => (
+        <p key={index}>{name}</p>
+      ))}
+    </div>
+  );
+};
+
+export default GetDataComponent;

@@ -1,4 +1,4 @@
-import { getDatabase, ref, onValue } from "firebase/database";
+/*import { getDatabase, ref, onValue } from "firebase/database";
 import firebase_app from "../config";
 
 
@@ -19,4 +19,4 @@ export default async function getData() {
       console.log(snapshot.val)
     });
     return names;
-  }
+  }*/
