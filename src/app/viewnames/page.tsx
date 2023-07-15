@@ -17,7 +17,7 @@ export default function ViewNames() {
   return (
     <main className="min-h-screen">
         <div>
-            <h1>{spitOutAnArray().map(txt => <p>{txt}</p>)}</h1>
+            <h1></h1>
         </div>
     </main>
   )
