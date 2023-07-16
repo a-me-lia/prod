@@ -35,7 +35,7 @@ const GetDataComponent = () => {
 
 
   return (
-    <div className='flex flex-col items-center min-h-screen max-h-screen bg-slate-700 text-white'>
+    <div className='flex flex-col items-center  h-screen overflow-hidden bg-slate-700 text-white'>
       <h1 className='text-2xl mt-12 xl:text-4xl'>Names for pickup:</h1>
       <p className='mx-8 text-center mt-6 mb-2'>click anywhere on the page to enable audio ping!</p>    
         <p className='mx-8 text-center mt-2 mb-6 text-red-500'>### REFRESHING WILL ERASE ENTRIES###</p>
