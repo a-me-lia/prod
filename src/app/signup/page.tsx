@@ -42,7 +42,7 @@ export default function Page() {
         console.log(result)
         return router.push("/entry")
     }
-    return (    <div className="  h-screen overflow-hidden text-black bg-white">
+    return (    <div className="  h-[calc(100dvh)] overflow-hidden text-black bg-white">
 
     <div className="flex flex-col items-center z-50">
         <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes="100vw" loading="lazy" className="object-cover"></Image></div>

@@ -15,7 +15,7 @@ export default function Page() {
 
     
     return (
-    <div className="  h-screen  flex flex-col items-center bg-white  text-black overflow-hidden">
+    <div className="  h-[calc(100dvh)] flex flex-col items-center bg-white  text-black overflow-hidden">
         <Link className='absolute left-2 top-2'href='/'>Back to sign-in</Link>
         <Link className='absolute right-2 top-2'href='/names'>Go to name view</Link>
         <h1 className="hidden lg:block mt-12 text-7xl font-bold text-center">TODAY'S CODE IS / 今天的密码是:</h1> 

@@ -63,7 +63,7 @@ export default function Page() {
     return (
         
         
-<div className="  h-screen overflow-hidden text-black bg-white">
+<div className="  h-[calc(100dvh)] overflow-hidden text-black bg-white">
     <div className="flex flex-col items-center ">
         <div className="absolute top-6 right-6" onClick={goToViewNames}><button  className="relative h-8 w-24" ><Image src='/live.webp' alt="live" sizes="100vw" fill></Image></button>
         <p className="text-center">pickup list</p></div>

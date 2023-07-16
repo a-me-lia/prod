@@ -36,7 +36,7 @@ const GetDataComponent = () => {
 
 
   return (
-    <div className='flex flex-col items-center  h-screen overflow-hidden bg-slate-700 text-white'>
+    <div className='flex flex-col items-center  h-[calc(100dvh)] overflow-hidden bg-slate-700 text-white'>
               <Link className='absolute left-2 top-2'href='/entry'>Back to entry</Link>
         <Link className='absolute right-2 top-2'href='/'>Back to sign-in</Link>
       <h1 className='text-2xl mt-12 xl:text-4xl'>Names for pickup:</h1>
