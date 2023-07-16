@@ -26,7 +26,7 @@ export default function RootLayout({ children }: {
         <AuthContextProvider>
           {children}
         </AuthContextProvider>
-        <p className='absolute bottom-2 left-2 w-2/3 text-slate-400 text-[10px]'>Developed by Marin Zheng  <br/><Link href='https://onetruebiribiri.com'>OneTrueBiriBiri.com</Link></p>
+        <p className='absolute bottom-2 left-2 w-2/3 text-slate-400 text-[10px]'>Developed by Matthew Guo <br/><Link href='https://onetruebiribiri.com'>MatthewGuo.com</Link></p>
         <div className='absolute bottom-0 right-6 md:left-36 w-12 h-10'><Image src='/imouto.png' alt='misaka imouto' fill sizes="100vw" className='object-cover'></Image></div>
       </body>
     </html>

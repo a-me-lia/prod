@@ -43,7 +43,7 @@ export default function Page() {
     return (
     <div className="  h-screen overflow-hidden bg-white  text-black">
         <div className="flex flex-col items-center z-50">
-            <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' className="object-cover"></Image></div>
+            <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' loading="lazy" className="object-cover"></Image></div>
             <h1 className="text-amber-600 font-bold text-md">Summer Pickup</h1>
             {/*<h1 className="text-amber-600 font-bold text-3xl mt-4">Sign in to enter name</h1>*/}
             <p className="text-red-700 text-[16px] mt-10">* Not CCS Official Account *</p>

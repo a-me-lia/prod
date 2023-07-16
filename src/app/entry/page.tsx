@@ -67,7 +67,7 @@ export default function Page() {
     <div className="flex flex-col items-center ">
         <div className="absolute top-6 right-6" onClick={goToViewNames}><button  className="relative h-8 w-24" ><Image src='/live.webp' alt="live" sizes="100vw" fill></Image></button>
         <p className="text-center">pickup list</p></div>
-    <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' className="object-cover"></Image></div>
+    <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' loading="lazy" className="object-cover"></Image></div>
             <h1 className="text-amber-600 font-bold text-md">Summer Pickup</h1>
             {/*<h1 className="text-amber-600 font-bold text-3xl mt-4">Sign in to enter name</h1>*/}
             <p className="text-purple-700 text-[16px] mt-10">Enter name of child for pickup</p>

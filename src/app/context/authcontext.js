@@ -8,6 +8,9 @@ import firebase_app from '../api/firebase/config';
 import { NextPageContext } from 'next'
 import Link from 'next/link';
 
+function reload(){
+    location.reload()
+}
 
 const auth = getAuth(firebase_app);
 
@@ -42,7 +45,8 @@ export const AuthContextProvider = ({
 	<div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
 	<h2 className="text-center text-slate-600 text-xl font-semibold">Loading...</h2>
 	<p className="w-64 mt-4 text-center text-slate-600">If you&apos;re on this for a while, refresh and try again</p>
-</div> : ((user ||  window.location.pathname == "/" ||  window.location.pathname == "/signin" || window.location.pathname == "/meirilunhuanmima") ? children : <div className='min-h-screen bg-white'>unauthenticated, please click <Link className=' underline' href='/'> sign in</Link> and refresh.</div>)}
+</div> : ((user ||  window.location.pathname == "/" ||  window.location.pathname == "/signin" || window.location.pathname == "/meirilunhuanmima") ? children : <div className='min-h-screen bg-white'>unauthenticated, please click <Link className=' underline' href='/'> sign in</Link> and <button  className="underline" onClick={reload}><p>refresh.</p></button></div>)}
         </AuthContext.Provider>
+        
     );
 };
