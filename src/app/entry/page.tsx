@@ -27,7 +27,7 @@ export default function Page() {
     
 
     function goToViewNames(){
-        router.replace('/viewnames')
+        router.replace('/names')
     }
     function goToSignIn(){
         router.replace('/')
