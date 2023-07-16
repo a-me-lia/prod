@@ -23,7 +23,7 @@ const GetDataComponent = () => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center text-black'>
       <h1>Data Names:</h1>
       {names.map((name, index) => (
         <p 
