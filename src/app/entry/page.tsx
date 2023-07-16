@@ -1,6 +1,6 @@
 'use client'
 import React, { FormEventHandler } from "react";
-import { useAuthContext } from "../context/authcontext";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
@@ -10,7 +10,6 @@ import Link from "next/link";
 
 
 export default function Page() {
-    const user = useAuthContext()
     const router = useRouter()
     const [name, setName] = React.useState('')
     const [code, setCode] = React.useState('')
@@ -54,11 +53,10 @@ export default function Page() {
         return;
     }
 
-    React.useEffect(() => {
-        if (user == null) router.push("/")
-    }, [router, user])
 
     return (
+        
+        
 <div className="min-h-screen max-h-screen text-black bg-white">
     <div className="flex flex-col items-center ">
         <div className="absolute top-6 right-6" onClick={goToViewNames}><button  className="relative h-8 w-24" ><Image src='/live.webp' alt="live" fill></Image></button>

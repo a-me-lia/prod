@@ -1,8 +1,10 @@
+
 'use client'
 import './globals.css'
 import { AuthContextProvider } from './context/authcontext'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,10 +25,9 @@ export default function RootLayout({ children }: {
         <AuthContextProvider>
           {children}
         </AuthContextProvider>
+        <p className='absolute bottom-2 left-2 w-2/3 text-slate-400 text-[10px]'>Developed by Matthew Guo  <br/><Link href='https://matthewguo.com'> @ MatthewGuo.com</Link></p>
       </body>
     </html>
   )
 }
-
-
 

@@ -18,9 +18,10 @@ const GetDataComponent = () => {
     const nameRef = ref(db, 'names/' + date + '/username');
 
     const listener = onValue(nameRef, (snapshot) => {
+      if(snapshot.val() != "hello"){
       setNames(names => [ snapshot.val(), ...names ]);
       console.log(snapshot.val());
-
+      }
     });
 
     return () => {
@@ -29,6 +30,7 @@ const GetDataComponent = () => {
   }, []);
 
   play();
+
 
 
   return (
@@ -41,16 +43,13 @@ const GetDataComponent = () => {
 
         <div className='items-center flex flex-col'>        
         <p 
-        className='text-2xl my-8 w-2/3 xl:w-full xl:my-16 xl:text-8xl font-bold text-center text-white'
+        className='text-2xl mt-12 mb-4 w-2/3 xl:w-full xl:mt-24 xl:mb-8 xl:text-8xl font-bold text-center text-white'
         key={index}>{name}</p>
         <div className='w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto'></div>
         </div>
       ))}
 
       </div>
-
-
-
     </div>
   );
 };
