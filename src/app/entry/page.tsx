@@ -6,6 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import sendData from "../api/firebase/rtdb/sendData";
 import Link from "next/link";
+import sendCode from "../api/firebase/rtdb/sendCode";
 
 
 
@@ -18,7 +19,12 @@ export default function Page() {
 
     let date = new Date().toUTCString().slice(0, 16);
     function TSH(s:string){for(var i=0,h=9;i<s.length;)h=Math.imul(h^s.charCodeAt(i++),9**9);return h^h>>>9}
+
     const codeRef = TSH(date) % 100
+
+    sendCode(codeRef);
+
+    
 
     function goToViewNames(){
         router.replace('/viewnames')

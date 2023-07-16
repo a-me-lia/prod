@@ -15,7 +15,7 @@ const GetDataComponent = () => {
 
   useEffect(() => {
     const db = getDatabase(firebase_app);
-    const nameRef = ref(db, 'names/' + date + '/username');
+    const nameRef = ref(db,   date + '/names'  + '/username');
 
     const listener = onValue(nameRef, (snapshot) => {
       if(snapshot.val() != "hello"){
@@ -30,6 +30,7 @@ const GetDataComponent = () => {
   }, []);
 
   play();
+
 
 
 

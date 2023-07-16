@@ -34,7 +34,7 @@ export const AuthContextProvider = ({
         return () => unsubscribe();
     }, []);
 
-    const pathname = window.location.pathname;
+
 
     return (
         <AuthContext.Provider value={{ user }}>
@@ -42,7 +42,7 @@ export const AuthContextProvider = ({
 	<div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
 	<h2 className="text-center text-slate-600 text-xl font-semibold">Loading...</h2>
 	<p className="w-64 mt-4 text-center text-slate-600">If you&apos;re on this for a while, refresh and try again</p>
-</div> : ((user || pathname == "/" || pathname == "signin") ? children : <div className='min-h-screen bg-white'>unauthenticated, please click <Link className=' underline' href='/'> sign in</Link> and refresh.</div>)}
+</div> : ((user ||  window.location.pathname == "/" ||  window.location.pathname == "/signin" || window.location.pathname == "/meirilunhuanmima") ? children : <div className='min-h-screen bg-white'>unauthenticated, please click <Link className=' underline' href='/'> sign in</Link> and refresh.</div>)}
         </AuthContext.Provider>
     );
 };
