@@ -47,7 +47,7 @@ export default function Page() {
     }, [router, user])
 
     return (
-<div className="min-h-screen max-h-screen bg-white">
+<div className="min-h-screen max-h-screen text-black bg-white">
     <div className="flex flex-col items-center ">
     <div className="relative h-20 w-48 mt-20">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' className="object-cover"></Image></div>
             <h1 className="text-amber-600 font-bold text-md">Summer Pickup</h1>

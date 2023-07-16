@@ -36,7 +36,7 @@ export default function Page() {
         console.log(result)
         return router.push("/entry")
     }
-    return (    <div className="min-h-screen max-h-screen bg-white">
+    return (    <div className="min-h-screen max-h-screen  text-black bg-white">
 
     <div className="flex flex-col items-center z-50">
         <div className="relative h-20 w-48 mt-20">            <Image src="/css.png" alt='Cary Chinese School' fill sizes="100vw" className="object-cover"></Image></div>
