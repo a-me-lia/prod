@@ -14,9 +14,9 @@ export default function Page() {
 
     
     return (
-    <div className="min-h-screen flex flex-col items-center bg-white  text-black">
-        <h1 className="mt-24 text-4xl lg:mt-12 lg:text-8xl font-bold">今天的密码是:</h1>
-        <div className="mt-16 lg:mt-8 px-12 py-6 lg:w-full lg:py-0 drop-shadow-2xl bg-yellow-300 font-bold text-red-500 text-center text-[180px] lg:text-[360px] ">{codeRef}</div>
+    <div className="min-h-screen max-h-screen flex flex-col items-center bg-white  text-black overflow-hidden">
+        <h1 className="mt-24 text-4xl lg:mt-12 lg:text-7xl font-bold">TODAY'S CODE IS / 今天的密码是:</h1>
+        <div className="mt-16 lg:mt-8 px-12 py-6 lg:w-full lg:h-max drop-shadow-2xl bg-yellow-300 font-bold text-red-500 text-center text-[180px] lg:text-[420px] ">{codeRef}</div>
 
 
     </div>);
