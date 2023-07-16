@@ -1,12 +1,17 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { getDatabase, ref, onValue, off } from "firebase/database";
 import firebase_app from "../api/firebase/config";
+import useSound from 'use-sound';
 
 let date = new Date().toUTCString().slice(0, 16);
 
+
 const GetDataComponent = () => {
   const [names, setNames] = useState<string[]>([]);
+  const [play] = useSound('/ping.wav');
+
+ 
 
   useEffect(() => {
     const db = getDatabase(firebase_app);
@@ -15,6 +20,7 @@ const GetDataComponent = () => {
     const listener = onValue(nameRef, (snapshot) => {
       setNames(names => [...names, snapshot.val()]);
       console.log(snapshot.val());
+
     });
 
     return () => {
@@ -22,14 +28,18 @@ const GetDataComponent = () => {
     };
   }, []);
 
+  play();
+
+
   return (
-    <div className='flex flex-col items-center bg-slate-50 text-black'>
+    <div className='flex flex-col items-center min-h-screen bg-slate-50 text-black'>
       <h1>Data Names:</h1>
       {names.map((name, index) => (
         <p 
         className='my-4 text-7xl text-black'
         key={index}>{name}</p>
       ))}
+
     </div>
   );
 };
