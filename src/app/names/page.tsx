@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import { getDatabase, ref, onValue, off } from "firebase/database";
 import firebase_app from "../api/firebase/config";
 import useSound from 'use-sound';
+import Link from 'next/link';
 
 let date = new Date().toUTCString().slice(0, 16);
 
@@ -36,6 +37,8 @@ const GetDataComponent = () => {
 
   return (
     <div className='flex flex-col items-center  h-screen overflow-hidden bg-slate-700 text-white'>
+              <Link className='absolute left-2 top-2'href='/'>Back to sign-in</Link>
+        <Link className='absolute right-2 top-2'href='/names'>Go to name view</Link>
       <h1 className='text-2xl mt-12 xl:text-4xl'>Names for pickup:</h1>
       <p className='mx-8 text-center mt-6 mb-2'>click anywhere on the page to enable audio ping!</p>    
         <p className='mx-8 text-center mt-2 mb-6 text-red-500'>###  REFRESHING WILL ERASE ENTRIES  ###</p>
