@@ -18,7 +18,7 @@ const GetDataComponent = () => {
     const nameRef = ref(db, 'names/' + date + '/username');
 
     const listener = onValue(nameRef, (snapshot) => {
-      setNames(names => [...names, snapshot.val()]);
+      setNames(names => [ snapshot.val(), ...names ]);
       console.log(snapshot.val());
 
     });
@@ -32,13 +32,24 @@ const GetDataComponent = () => {
 
 
   return (
-    <div className='flex flex-col items-center min-h-screen bg-slate-50 text-black'>
-      <h1>Data Names:</h1>
+    <div className='flex flex-col items-center min-h-screen max-h-screen bg-slate-700 text-white'>
+      <h1 className='text-2xl mt-12 xl:text-4xl'>Names for pickup:</h1>
+      <p className='mx-8 text-center mt-6 mb-2'>click anywhere on the page to enable audio ping!</p>    
+        <p className='mx-8 text-center mt-2 mb-6 text-red-500'>### REFRESHING WILL ERASE ENTRIES###</p>
+      <div className='relative overflow-y-auto w-full mt-6 '>
       {names.map((name, index) => (
+
+        <div className='items-center flex flex-col'>        
         <p 
-        className='my-4 text-7xl text-black'
+        className='text-2xl my-8 w-2/3 xl:w-full xl:my-16 xl:text-8xl font-bold text-center text-white'
         key={index}>{name}</p>
+        <div className='w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto'></div>
+        </div>
       ))}
+
+      </div>
+
+
 
     </div>
   );

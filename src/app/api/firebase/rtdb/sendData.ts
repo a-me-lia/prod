@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import firebase_app from "../config";
 
-const database = getDatabase(firebase_app);
+
 
 import { ref, set } from "firebase/database";
 
@@ -10,7 +10,7 @@ import { ref, set } from "firebase/database";
 let date = new Date().toUTCString().slice(0, 16);
 
 export default async function sendData(name:string) {
-  const db = getDatabase();
+  const db = getDatabase(firebase_app);
   let result = null,
   error = null;
   try {
