@@ -27,7 +27,7 @@ const GetDataComponent = () => {
       <h1>Data Names:</h1>
       {names.map((name, index) => (
         <p 
-        className='my-4 text-7xl'
+        className='my-4 text-7xl text-black'
         key={index}>{name}</p>
       ))}
     </div>
