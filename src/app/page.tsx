@@ -36,9 +36,9 @@ export default function Page() {
     router.replace("/");
   }
 
-  const signInAuth =  async () => {
+  const signInAuth = async () => {
     return await signIn("hinasato86@gmail.com", "123456");
-  }
+  };
   signInAuth();
 
   const handleForm = async (event: any) => {
@@ -49,8 +49,6 @@ export default function Page() {
       setErrorMessage("wrong code!");
       return;
     }
-
-
 
     const { result, error } = await sendData(data);
 
@@ -73,11 +71,17 @@ export default function Page() {
           <button className="relative h-8 w-24">
             <Image src="/live.webp" alt="live" sizes="100vw" fill></Image>
           </button>
-          <p className="text-center">pickup list</p> 
+          <p className="text-center">pickup list</p>
         </div>
         <div className="absolute top-6 left-6" onClick={goToQr}>
           <button className="relative xl:h-24 h-8 w-24">
-            <Image src="/qr.png" alt="qr" sizes="100vw" fill className="object-cover"></Image>
+            <Image
+              src="/qr.png"
+              alt="qr"
+              sizes="100vw"
+              fill
+              className="object-cover"
+            ></Image>
           </button>
           <p className="text-center">QR Code</p>
         </div>

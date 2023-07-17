@@ -55,8 +55,6 @@ const Page = () => {
         Back to entry
       </Link>
 
-
-    
       <h1 className="text-2xl mt-16 xl:mt-2 xl:text-4xl">Names for pickup:</h1>
       <p className="mx-8 text-center mt-2">
         click anywhere on the page to enable audio ping!
@@ -72,18 +70,16 @@ const Page = () => {
                 key={index}
               >
                 <div className="flex flex-row">
-                  <div className=''>
+                  <div className="">
                     <div>
-                    <span>{entry.username}</span>
-                    <span className="absolute xl:left-1/2 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
-                      Timestamp: {entry.timestamp}
-                    </span>
+                      <span>{entry.username}</span>
+                      <span className="absolute xl:left-1/2 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
+                        Timestamp: {entry.timestamp}
+                      </span>
                     </div>
 
                     <div className="mt-2 xl:mt-2 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  "></div>
-                    
                   </div>
-                  
                 </div>
               </li>
             ))}

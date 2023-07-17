@@ -39,9 +39,7 @@ export default function RootLayout({
         <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
           Developed by Matthew Guo <br />
         </p>
-        <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10">
-
-        </div>
+        <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10"></div>
       </body>
     </html>
   );
