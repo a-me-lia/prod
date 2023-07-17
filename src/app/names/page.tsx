@@ -55,6 +55,8 @@ const Page = () => {
         Back to entry
       </Link>
 
+
+    
       <h1 className="text-2xl mt-16 xl:mt-2 xl:text-4xl">Names for pickup:</h1>
       <p className="mx-8 text-center mt-4 mb-2">
         click anywhere on the page to enable audio ping!
@@ -66,14 +68,14 @@ const Page = () => {
           <ul className="flex flex-col items-left  overflow-hidden">
             {entries.map((entry, index) => (
               <li
-                className="xl:ml-8 ml-2 flex flex-col text-2xl mt-6 mb-4 xl:w-full xl:mt-6 xl:mb-4 xl:text-5xl font-bold  text-white"
+                className="xl:ml-8 ml-2 flex flex-col text-2xl mt-4 mb-2 xl:w-full xl:mt-4 xl:mb-2 xl:text-5xl font-bold  text-white"
                 key={index}
               >
                 <div className="flex flex-row">
                   <div className=''>
                     <div>
                     <span>{entry.username}</span>
-                    <span className="absolute xl:left-3/4 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
+                    <span className="absolute xl:left-1/2 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
                       Timestamp: {entry.timestamp}
                     </span>
                     </div>
