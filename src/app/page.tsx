@@ -68,11 +68,11 @@ export default function Page() {
           <button className="relative h-8 w-24">
             <Image src="/live.webp" alt="live" sizes="100vw" fill></Image>
           </button>
-          <p className="text-center">pickup list</p>
+          <p className="text-center">pickup list</p> 
         </div>
         <div className="absolute top-6 left-6" onClick={goToQr}>
-          <button className="relative h-8 w-8">
-            <Image src="/qr.png" alt="qr" sizes="100vw" fill></Image>
+          <button className="relative xl:h-24 h-8 w-24">
+            <Image src="/qr.png" alt="qr" sizes="100vw" fill className="object-cover"></Image>
           </button>
           <p className="text-center">QR Code</p>
         </div>
