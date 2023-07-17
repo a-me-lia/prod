@@ -47,7 +47,7 @@ const Page = () => {
   play();
 
   return (
-    <div className="flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen overflow-hidden bg-slate-700 text-white">
+    <div className="flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen max-h-screen overflow-hidden bg-slate-700 text-white">
       <Link
         className="absolute left-2 top-2 border-2 border-opacity-30 rounded-lg border-white  px-2 py-1"
         href="/"
