@@ -27,7 +27,7 @@ export default function Page() {
       return;
     }
 
-    const { result, error } = await signUp(email, password);
+
 
     if (error) {
       setErrorMessage(JSON.stringify(error));

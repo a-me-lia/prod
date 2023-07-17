@@ -37,7 +37,7 @@ export default function Page() {
   }
 
   const signInAuth = async () => {
-    return await signIn("hinasato86@gmail.com", "123456");
+    return await signIn();
   };
   signInAuth();
 
