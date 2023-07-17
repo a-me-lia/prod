@@ -38,9 +38,6 @@ export default function RootLayout({
         <AuthContextProvider>{children}</AuthContextProvider>
         <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
           Developed by Matthew Guo <br />
-          <Link href="https://onetruebiribiri.com">
-            matthewguo.x86@gmail.com
-          </Link>
         </p>
         <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10">
 
