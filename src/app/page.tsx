@@ -26,7 +26,9 @@ export default function Page() {
   const codeRef = Math.abs(TSH(date) % 100);
 
   sendCode(codeRef);
-
+  function goToQr() {
+    router.replace("/qr");
+  }
   function goToViewNames() {
     router.replace("/names");
   }
@@ -67,6 +69,12 @@ export default function Page() {
             <Image src="/live.webp" alt="live" sizes="100vw" fill></Image>
           </button>
           <p className="text-center">pickup list</p>
+        </div>
+        <div className="absolute top-6 left-6" onClick={goToQr}>
+          <button className="relative h-8 w-8">
+            <Image src="/qr.png" alt="qr" sizes="100vw" fill></Image>
+          </button>
+          <p className="text-center">QR Code</p>
         </div>
         <div className="relative h-20 w-48 mt-24">
           {" "}
