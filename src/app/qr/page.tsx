@@ -21,7 +21,7 @@ export default function Page() {
         Back to entry
       </Link>
       <div></div>
-      <div className="absolute z-50 top-[-64px] xl:top-[-96px] text-[320px] text-red-500 font-bold">
+      <div className="absolute z-50 top-[64px] xl:top-[-96px] text-9xl  xl:text-[320px] text-red-500 font-bold">
         {codeRef}
       </div>
       <div className="h-32"></div>

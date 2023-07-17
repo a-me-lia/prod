@@ -87,6 +87,7 @@ export default function Page() {
         </div>
         <div className="absolute top-6 left-6" onClick={goToQr}>
           <button className="relative xl:h-24 h-8 w-24">
+            <div className="absolute top-[-2px] xl:hidden left-6 z-50 text-red-500 font-bold text-3xl">QR</div>
             <Image
               src="/qr.png"
               alt="qr"
