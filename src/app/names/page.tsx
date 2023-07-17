@@ -50,7 +50,7 @@ const Page = () => {
     <div className="flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen overflow-hidden bg-slate-700 text-white">
       <Link
         className="absolute left-2 top-2 border-2 border-opacity-30 rounded-lg border-white  px-2 py-1"
-        href="/entry"
+        href="/"
       >
         Back to entry
       </Link>
@@ -66,19 +66,19 @@ const Page = () => {
           <ul className="flex flex-col items-left  overflow-hidden">
             {entries.map((entry, index) => (
               <li
-                className="ml-8 flex flex-col text-2xl mt-6 mb-4 xl:w-full xl:mt-6 xl:mb-4 xl:text-4xl font-bold  text-white"
+                className="xl:ml-8 ml-2 flex flex-col text-2xl mt-6 mb-4 xl:w-full xl:mt-6 xl:mb-4 xl:text-5xl font-bold  text-white"
                 key={index}
               >
                 <div className="flex flex-row">
                   <div className=''>
                     <div>
                     <span>{entry.username}</span>
-                    <span className=" absolute left-3/4 text-right font-normal text-sm xl:mt-4 xl:text-2xl">
+                    <span className="absolute xl:left-3/4 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
                       Timestamp: {entry.timestamp}
                     </span>
                     </div>
 
-                    <div className="mt-2 xl:mt-4 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  "></div>
+                    <div className="mt-2 xl:mt-2 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  "></div>
                     
                   </div>
                   
