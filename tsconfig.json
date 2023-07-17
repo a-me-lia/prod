@@ -35,7 +35,8 @@
     "src/app/api/firebase/auth/signin.tsx",
     "src/app/api/firebase/config.ts",
     "src/app/layout.tsx",
-    "src/app/[unused] page.tsx"
-, "src/app/not-found.tsx"  ],
+    "src/app/[unused] page.tsx",
+    "src/app/not-found.tsx"
+  ],
   "exclude": ["node_modules"]
 }

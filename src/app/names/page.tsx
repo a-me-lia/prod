@@ -62,18 +62,27 @@ const Page = () => {
       <div className="mt-4 w-full h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto"></div>
 
       <div className="relative overflow-y-auto w-full ">
-        <div className="items-center flex flex-col">
-          <ul className="flex flex-col items-center">
+        <div className="items-left flex flex-col">
+          <ul className="flex flex-col items-left  overflow-hidden">
             {entries.map((entry, index) => (
               <li
-                className="flex flex-col text-2xl mt-6 mb-4 xl:w-full xl:mt-12 xl:mb-8 xl:text-6xl font-bold text-center text-white"
+                className="ml-8 flex flex-col text-2xl mt-6 mb-4 xl:w-full xl:mt-6 xl:mb-4 xl:text-4xl font-bold  text-white"
                 key={index}
               >
-                <span>{entry.username}</span>
-                <span className="mt-2 font-normal text-sm xl:mt-4 xl:text-4xl">
-                  Timestamp: {entry.timestamp}
-                </span>
-                <div className="mt-2 xl:mt-4 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto"></div>
+                <div className="flex flex-row">
+                  <div className=''>
+                    <div>
+                    <span>{entry.username}</span>
+                    <span className=" absolute left-3/4 text-right font-normal text-sm xl:mt-4 xl:text-2xl">
+                      Timestamp: {entry.timestamp}
+                    </span>
+                    </div>
+
+                    <div className="mt-2 xl:mt-4 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  "></div>
+                    
+                  </div>
+                  
+                </div>
               </li>
             ))}
           </ul>

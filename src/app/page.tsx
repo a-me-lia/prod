@@ -43,7 +43,7 @@ export default function Page() {
       return;
     }
 
-    await signIn('hinasato86@gmail.com', '123456');
+    await signIn("hinasato86@gmail.com", "123456");
 
     const { result, error } = await sendData(data);
 
