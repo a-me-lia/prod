@@ -29,6 +29,7 @@ export default async function sendData(name: string) {
   if (name != "hello") {
     try {
       const lastSnapshot = await get(child(ref(db), date + "/"));
+      const lastUsername = (await get(child(ref(db), date + "/username/"))).val();
       const lastValue = lastSnapshot.val();
       let newUsername = "00001";
 
@@ -52,8 +53,13 @@ export default async function sendData(name: string) {
         username: name,
         timestamp: timestamp,
       };
-
-      result = await set(ref(db, date + "/" + newUsername), entry);
+      if(lastUsername != name){
+        result = await set(ref(db, date + "/" + newUsername), entry);
+      }
+      else{
+        error = 'Name ' + name + ' was already sent, please wait.'
+      }
+ 
     } catch (e: any) {
       error = e;
     }
