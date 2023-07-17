@@ -20,9 +20,10 @@ export default function RootLayout({ children }: {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head>
+      <meta property="og:title" content="CCS Pickup App"/>
       <meta property="description" content="The Cary Chinese School summer program pickup handler website" />
       <meta property="og:image" content="https://carycspickup.vercel.app/_next/image?url=%2Fcss.png&w=3840&q=75"/>
-      <meta property="og:description" content="https://carycspickup.vercel.app" />
+      <meta property="og:url" content="https://carycspickup.vercel.app/"/>
        </head>
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <title>CCS Summer Pickup</title>
