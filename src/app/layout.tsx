@@ -21,7 +21,7 @@ export default function RootLayout({ children }: {
       */}
       <head>
       <meta property="description" content="The Cary Chinese School summer program pickup handler website" />
-      <meta property="og:image" content="https://carycspickup.vercel.app/_next/image?url=%2Fcss.png&w=3840&q=75">     </meta>
+      <meta property="og:image" content="https://carycspickup.vercel.app/_next/image?url=%2Fcss.png&w=3840&q=75"/>
       <meta property="og:description" content="https://carycspickup.vercel.app" />
        </head>
       <link rel="icon" href="/favicon.ico" sizes="any" />
