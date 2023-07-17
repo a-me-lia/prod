@@ -144,12 +144,6 @@ export default function Page() {
             </button>
           </div>
 
-          <button
-            className="w-[256px] mt-[-10px] text-right text-[14px]"
-            onClick={goToSignIn}
-          >
-            <p>Back to login</p>
-          </button>
           {state === "CODEEXCEPTION" && (
             <p className="relative  mt-[-10px] text-red-600">{errorMessage}</p>
           )}
