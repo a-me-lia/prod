@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 import React from "react";
 import signIn from "./api/firebase/auth/signin";
 import { useRouter } from "next/navigation";
@@ -51,7 +51,7 @@ export default function Page() {
           ></Image>
         </div>
         <h1 className="text-amber-600 font-bold text-md">Summer Pickup</h1>
-        {/*<h1 className="text-amber-600 font-bold text-3xl mt-4">Sign in to enter name</h1>*/}
+
         <p className="text-red-700 text-[16px] mt-10">
           * Not CCS Official Account *
         </p>
@@ -114,4 +114,4 @@ export default function Page() {
       </div>
     </div>
   );
-}
+}*/

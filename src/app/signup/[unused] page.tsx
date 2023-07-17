@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 import React from "react";
 import signUp from "../api/firebase/auth/signup";
 import { useRouter } from "next/navigation";
@@ -130,4 +130,4 @@ export default function Page() {
       </div>
     </div>
   );
-}
+}*/
