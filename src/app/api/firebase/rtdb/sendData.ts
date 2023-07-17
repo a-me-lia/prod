@@ -15,42 +15,49 @@ const getCurrentTime = (): string => {
 
   return `${padWithZero(hours)}:${padWithZero(minutes)}:${padWithZero(seconds)}`;
 }
+const db = getDatabase(firebase_app);
+
 
 console.log(getCurrentTime());
 
 export default async function sendData(name: string) {
-  const db = getDatabase(firebase_app);
+
+
   let result: any = null,
     error: any = null;
 
-  try {
-    const lastSnapshot = await get(child(ref(db), date + "/"));
-    const lastValue = lastSnapshot.val();
-    let newUsername = "0001";
-
-    if (lastValue) {
-      const lastKey = Object.keys(lastValue).pop();
-      const lastIndex = lastKey ? parseInt((lastKey.match(/\d+/g) || [])[0]!) : 0;
-      newUsername = `${(lastIndex < 999 ? 0 : '')}${(lastIndex < 99 ? 0 : '')}${(lastIndex < 9 ? 0 : '')}${lastIndex + 1}`;
-      console.log(newUsername)
+    if (name != 'hello'){
+      try {
+        const lastSnapshot = await get(child(ref(db), date + "/"));
+        const lastValue = lastSnapshot.val();
+        let newUsername = "00001";
+    
+        if (lastValue) {
+          const lastKey = Object.keys(lastValue).pop();
+          const lastIndex = lastKey ? parseInt((lastKey.match(/\d+/g) || [])[0]!) : 0;
+          newUsername = `${(lastIndex < 9999 ? 0 : '')}${(lastIndex < 999 ? 0 : '')}${(lastIndex < 99 ? 0 : '')}${(lastIndex < 9 ? 0 : '')}${lastIndex + 1}`;
+          console.log(newUsername)
+        }
+        if(newUsername == 'NaN'){
+          newUsername = '00001'
+        }
+    
+    
+      
+      console.log(getCurrentTime());
+        const timestamp = getCurrentTime(); // Get the current timestamp in the format of hh:mm:ss
+        const entry = {
+          username: name,
+          timestamp: timestamp,
+        };
+    
+        result = await set(ref(db, date + "/" + newUsername), entry);
+      } catch (e: any) {
+        error = e;
+      }
+    
+      return { result, error };
     }
-    if(newUsername == 'NaN'){
-      newUsername = '0001'
-    }
 
-
-  
-  console.log(getCurrentTime());
-    const timestamp = getCurrentTime(); // Get the current timestamp in the format of hh:mm:ss
-    const entry = {
-      username: name,
-      timestamp: timestamp,
-    };
-
-    result = await set(ref(db, date + "/" + newUsername), entry);
-  } catch (e: any) {
-    error = e;
-  }
-
-  return { result, error };
+    return { result, error };
 }

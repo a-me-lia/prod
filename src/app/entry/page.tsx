@@ -34,7 +34,7 @@ export default function Page() {
     }
 
     const handleForm = async (event: any) => {
-        event.preventDefault()
+        event.preventDefault();
         const data = name;
         if (code != String(codeRef)){
             setState("ERROR")
@@ -72,17 +72,17 @@ export default function Page() {
             {/*<h1 className="text-amber-600 font-bold text-3xl mt-4">Sign in to enter name</h1>*/}
             <p className="text-purple-700 text-[16px] mt-10">Enter name of child for pickup</p>
 
-    <form onSubmit={handleForm} className="flex flex-col items-start justify-start space-y-4 mt-4">
-                <label htmlFor="name">
-
-                    <input className='border-2 py-1 px-2 min-w-[256px]'onChange={(e) => setName(e.target.value)} required type="name" name="name" id="name" placeholder="Matthew Guo/郭子玉" />
+    <form onSubmit={handleForm} className="flex flex-col items-start justify-start space-y-3 mt-4">
+                <label className="relative" htmlFor="name">
+                <div className="absolute bg-white p-[0.5] text-[10px] text-slate-500 translate-x-2 -translate-y-2">Name (English Preferred)</div>
+                    <input className='border-2 rounded-lg py-1 px-2 min-w-[256px]'onChange={(e) => setName(e.target.value)} required type="name" name="name" id="name" placeholder="Matthew Guo/郭子玉" />
                 </label>
                 
-<div className='flex flex-row space-x-4 items-center'>                <label htmlFor="code">
-
-<input className='border-2 py-1 px-2 w-[64px]'onChange={(e) => setCode(e.target.value)} required type="code" name="code" id="code" placeholder="Code" />
+<div className='flex flex-row space-x-4 items-center'>                <label className='relative' htmlFor="code">
+<div className="absolute bg-white p-[0.5] text-[10px] text-slate-500 translate-x-2 -translate-y-2">Code</div>
+<input className='border-2 rounded-lg py-1 px-2 w-[48px]'onChange={(e) => setCode(e.target.value)} required type="code" name="code" id="code" placeholder="XX" />
 </label>
-                <button type="submit"><div className=" border-2 text-white font-bold text-lg border-purple-200 px-2 py-1 w-[176px] rounded-lg bg-purple-400">Submit</div>
+                <button type="submit"><div className=" border-2 text-white font-bold text-lg border-purple-200 px-2 py-1 w-[192px] rounded-lg bg-purple-400 drop-shadow-xl hover:bg-slate-300 hover:drop-shadow-none transition-all duration-200">Submit</div>
                 </button></div>
 
 
