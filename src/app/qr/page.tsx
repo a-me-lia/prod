@@ -24,7 +24,7 @@ export default function Page(){
       <div>
 
       </div>
-            <div className="absolute z-50 top-[-96px] text-[320px] text-red-500 font-bold">{codeRef}</div>
+            <div className="absolute z-50 top-[-64px] xl:top-[-96px] text-[320px] text-red-500 font-bold">{codeRef}</div>
             <div className="h-32"></div>
             <div className="relative mt-8 w-full xl:w-min xl:h-screen xl:aspect-square aspect-square ">
             <Image src='/qr.png' fill alt='qr code for https://carycspickup.vercel.app' className="aspect-square object-cover"/>
