@@ -9,6 +9,8 @@ import Link from "next/link";
 import sendCode from "./api/firebase/rtdb/sendCode";
 import signIn from "./api/firebase/auth/signin";
 
+let prevName = '';
+
 export default function Page() {
   const router = useRouter();
   const [name, setName] = React.useState("");
@@ -36,13 +38,10 @@ export default function Page() {
     router.replace("/");
   }
 
-  const signInAuth = async () => {
-    return await signIn();
-  };
-  signInAuth();
 
   const handleForm = async (event: any) => {
     event.preventDefault();
+
     const data = name;
     if (code != String(codeRef)) {
       setState("ERROR");
@@ -50,18 +49,31 @@ export default function Page() {
       return;
     }
 
-    const { result, error } = await sendData(data);
+    
 
-    if (error) {
-      setErrorMessage(JSON.stringify(error));
-      setState("CODEEXCEPTION");
-      return console.log(error);
-    }
-
-    // else successful
+    if(name != prevName){
+      let { result, error, lastName } = await sendData(data);
+      if (error) {
+        setErrorMessage(JSON.stringify(error));
+        setState("CODEEXCEPTION");
+        return console.log(error);
+      }
+          // else successful
     setState("SUCCESS");
     //console.log(result)
-    return;
+
+      prevName = name;
+      return;
+    }
+    else{
+      setState('ERROR');
+      setErrorMessage('Name ' + name + ' was already sent, please wait.');
+      return;
+    }
+
+
+
+
   };
 
   return (

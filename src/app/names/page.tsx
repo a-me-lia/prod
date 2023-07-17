@@ -4,6 +4,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import firebase_app from "../api/firebase/config";
 import Link from "next/link";
 import useSound from "use-sound";
+import signIn from "../api/firebase/auth/signin";
 
 interface Entry {
   username: string;
@@ -17,6 +18,8 @@ const Page = () => {
   function Ping() {
     play();
   }
+
+
 
   useEffect(() => {
     const db = getDatabase(firebase_app);

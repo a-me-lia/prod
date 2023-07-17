@@ -23,28 +23,31 @@ const db = getDatabase(firebase_app);
 console.log(getCurrentTime());
 
 export default async function sendData(name: string) {
+  const lastName = name;
   let result: any = null,
     error: any = null;
 
   if (name != "hello") {
     try {
+      
       const lastSnapshot = await get(child(ref(db), date + "/"));
-      const lastUsername = (await get(child(ref(db), date + "/username/"))).val();
       const lastValue = lastSnapshot.val();
-      let newUsername = "00001";
+
+      let newindex = "00001";
+      let lastName = null;
 
       if (lastValue) {
         const lastKey = Object.keys(lastValue).pop();
         const lastIndex = lastKey
           ? parseInt((lastKey.match(/\d+/g) || [])[0]!)
           : 0;
-        newUsername = `${lastIndex < 9999 ? 0 : ""}${lastIndex < 999 ? 0 : ""}${
+        newindex = `${lastIndex < 9999 ? 0 : ""}${lastIndex < 999 ? 0 : ""}${
           lastIndex < 99 ? 0 : ""
         }${lastIndex < 9 ? 0 : ""}${lastIndex + 1}`;
-        console.log(newUsername);
+        console.log(newindex);
       }
-      if (newUsername == "NaN") {
-        newUsername = "00001";
+      if (newindex == "NaN") {
+        newindex = "00001";
       }
 
       console.log(getCurrentTime());
@@ -53,12 +56,11 @@ export default async function sendData(name: string) {
         username: name,
         timestamp: timestamp,
       };
-      if(lastUsername != name){
-        result = await set(ref(db, date + "/" + newUsername), entry);
-      }
-      else{
-        error = 'Name ' + name + ' was already sent, please wait.'
-      }
+        result = await set(ref(db, date + "/" + newindex), entry);
+      
+
+
+      
  
     } catch (e: any) {
       error = e;
@@ -67,5 +69,5 @@ export default async function sendData(name: string) {
     return { result, error };
   }
 
-  return { result, error };
+  return { result, error, lastName };
 }
