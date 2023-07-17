@@ -12,12 +12,7 @@ export default function Custom404() {
       <div className="absolute bottom-0 w-full">
       <div className="absolute bottom-0 translate-x-1/2">
         <div className="relative h-72 w-48">
-        <Image
-          src="/confuse.png"
-          className="object-cover"
-          alt="not found!"
-          fill
-        ></Image>
+
         </div>
 
       </div>

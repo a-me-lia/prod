@@ -43,13 +43,7 @@ export default function RootLayout({
           </Link>
         </p>
         <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10">
-          <Image
-            src="/imouto.png"
-            alt="misaka imouto"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          ></Image>
+
         </div>
       </body>
     </html>
