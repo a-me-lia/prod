@@ -1,25 +1,56 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set, child, get, push } from "firebase/database";
 import firebase_app from "../config";
-
-
-
-import { ref, set } from "firebase/database";
-
 
 let date = new Date().toUTCString().slice(0, 16);
 
-export default async function sendData(name:string) {
-  const db = getDatabase(firebase_app);
-  let result = null,
-  error = null;
-  try {
-    result = await set(ref(db,  date + '/names' ), {
-      username: name,
-    });
-  } catch (e) {
-    error = e;
+const getCurrentTime = (): string => {
+  const date = new Date();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+
+  // Pad with '0' to ensure two digits
+  const padWithZero = (num: number): string => num < 10 ? '0' + num : num.toString();
+
+  return `${padWithZero(hours)}:${padWithZero(minutes)}:${padWithZero(seconds)}`;
 }
 
-return { result, error };
+console.log(getCurrentTime());
+
+export default async function sendData(name: string) {
+  const db = getDatabase(firebase_app);
+  let result: any = null,
+    error: any = null;
+
+  try {
+    const lastSnapshot = await get(child(ref(db), date + "/"));
+    const lastValue = lastSnapshot.val();
+    let newUsername = "0001";
+
+    if (lastValue) {
+      const lastKey = Object.keys(lastValue).pop();
+      const lastIndex = lastKey ? parseInt((lastKey.match(/\d+/g) || [])[0]!) : 0;
+      newUsername = `${(lastIndex < 999 ? 0 : '')}${(lastIndex < 99 ? 0 : '')}${(lastIndex < 9 ? 0 : '')}${lastIndex + 1}`;
+      console.log(newUsername)
+    }
+    if(newUsername == 'NaN'){
+      newUsername = '0001'
+    }
+
+
+  
+  console.log(getCurrentTime());
+    const timestamp = getCurrentTime(); // Get the current timestamp in the format of hh:mm:ss
+    const entry = {
+      username: name,
+      timestamp: timestamp,
+    };
+
+    result = await set(ref(db, date + "/" + newUsername), entry);
+  } catch (e: any) {
+    error = e;
+  }
+
+  return { result, error };
 }

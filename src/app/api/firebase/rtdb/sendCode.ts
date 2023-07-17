@@ -14,7 +14,7 @@ export default async function sendCode(code:number) {
   let result = null,
   error = null;
   try {
-    result = await set(ref(db, date + '/codes'), {
+    result = await set(ref(db, 'code'), {
       code: code,
     });
   } catch (e) {

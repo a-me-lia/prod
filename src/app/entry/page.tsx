@@ -20,7 +20,7 @@ export default function Page() {
     let date = new Date().toUTCString().slice(0, 16);
     function TSH(s:string){for(var i=0,h=9;i<s.length;)h=Math.imul(h^s.charCodeAt(i++),9**9);return h^h>>>9}
 
-    const codeRef = TSH(date) % 100
+    const codeRef = Math.abs(TSH(date) % 100)
 
     sendCode(codeRef);
 
@@ -55,7 +55,7 @@ export default function Page() {
 
         // else successful
         setState("SUCCESS");
-        console.log(result)
+        //console.log(result)
         return;
     }
 
