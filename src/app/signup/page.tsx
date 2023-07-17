@@ -16,7 +16,7 @@ export default function Page() {
     const [errorMessage, setErrorMessage] = useState('');
 
     function goToSignIn(){
-        router.replace('./')
+        router.replace('/')
     }
 
     const handleForm = async (event: any) => {
