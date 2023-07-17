@@ -65,7 +65,7 @@ const Page = () => {
 
       <div className="relative overflow-y-auto w-full ">
         <div className="items-left flex flex-col">
-          <ul className="flex flex-col items-left  overflow-hidden">
+          <ul className="flex flex-col items-left mt-2 overflow-hidden">
             {entries.map((entry, index) => (
               <li
                 className="xl:ml-8 ml-2 flex flex-col text-2xl mt-4 mb-2 xl:w-full xl:mt-4 xl:mb-2 xl:text-5xl font-bold  text-white"
