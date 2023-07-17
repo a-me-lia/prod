@@ -58,10 +58,10 @@ const Page = () => {
 
     
       <h1 className="text-2xl mt-16 xl:mt-2 xl:text-4xl">Names for pickup:</h1>
-      <p className="mx-8 text-center mt-4 mb-2">
+      <p className="mx-8 text-center mt-2">
         click anywhere on the page to enable audio ping!
       </p>
-      <div className="mt-4 w-full h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto"></div>
+      <div className="mt-2 w-full h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto"></div>
 
       <div className="relative overflow-y-auto w-full ">
         <div className="items-left flex flex-col">
