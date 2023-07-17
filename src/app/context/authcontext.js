@@ -51,15 +51,17 @@ export const AuthContextProvider = ({ children }) => {
         children
       ) : (
         <div className="min-h-screen bg-white">
-          unauthenticated, please click{" "}
+          <div className="border-2 border-red-500 p-4 bg-red-300">
+          Unauthenticated, please click{" "}
           <Link className=" underline" href="/">
             {" "}
             sign in
           </Link>{" "}
-          and{" "}
+          and then{" "}
           <button className="underline" onClick={reload}>
             <p>refresh.</p>
           </button>
+          </div>
         </div>
       )}
     </AuthContext.Provider>
