@@ -36,6 +36,11 @@ export default function Page() {
     router.replace("/");
   }
 
+  const signInAuth =  async () => {
+    return await signIn("hinasato86@gmail.com", "123456");
+  }
+  signInAuth();
+
   const handleForm = async (event: any) => {
     event.preventDefault();
     const data = name;
@@ -45,7 +50,7 @@ export default function Page() {
       return;
     }
 
-    await signIn("hinasato86@gmail.com", "123456");
+
 
     const { result, error } = await sendData(data);
 
