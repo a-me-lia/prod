@@ -39,7 +39,7 @@ export default function Page() {
     sendData("hello");
     
     return (
-    <div className="  h-[calc(100dvh)] overflow-hidden bg-white  text-black">
+    <div className="  h-[calc(100dvh)] xl:min-h-screen overflow-hidden bg-white  text-black">
         <div className="flex flex-col items-center z-50">
             <div className="relative h-20 w-48 mt-24">            <Image src="/css.png" alt='Cary Chinese School' fill sizes='100vw' loading="lazy" className="object-cover"></Image></div>
             <h1 className="text-amber-600 font-bold text-md">Summer Pickup</h1>

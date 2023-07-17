@@ -57,7 +57,7 @@ const Page = () => {
 
   return (
 
-<div className='flex flex-col items-center  h-[calc(100dvh)] overflow-hidden bg-slate-700 text-white'>
+<div className='flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen overflow-hidden bg-slate-700 text-white'>
   <Link className='absolute left-2 top-2 border-2 border-opacity-30 rounded-lg border-white  px-2 py-1'href='/entry'>Back to entry</Link>
 
   <h1 className='text-2xl mt-16 xl:text-4xl'>Names for pickup:</h1>
