@@ -1,16 +1,12 @@
 import { ImageOptimizerCache } from "next/dist/server/image-optimizer";
 import Image from "next/image";
 import Link from "next/link";
+import codeGen from "../codegen";
 
 export default function Page() {
-  let date = new Date().toUTCString().slice(0, 16);
-  function TSH(s: string) {
-    for (var i = 0, h = 9; i < s.length; )
-      h = Math.imul(h ^ s.charCodeAt(i++), 9 ** 9);
-    return h ^ (h >>> 9);
-  }
 
-  const codeRef = Math.abs(TSH(date) % 100);
+
+  const codeRef = codeGen();
 
   return (
     <div className=" h-[calc(100dvh)]  xl:min-h-screen flex flex-col items-center bg-white">

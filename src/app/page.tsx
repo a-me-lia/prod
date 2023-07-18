@@ -5,9 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import sendData from "./api/firebase/rtdb/sendData";
-import Link from "next/link";
-import sendCode from "./api/firebase/rtdb/sendCode";
-import signIn from "./api/firebase/auth/signin";
+import codeGen from "./codegen";
 
 let prevName = '';
 
@@ -18,16 +16,7 @@ export default function Page() {
   const [state, setState] = useState("IDLE");
   const [errorMessage, setErrorMessage] = useState("");
 
-  let date = new Date().toUTCString().slice(0, 16);
-  function TSH(s: string) {
-    for (var i = 0, h = 9; i < s.length; )
-      h = Math.imul(h ^ s.charCodeAt(i++), 9 ** 9);
-    return h ^ (h >>> 9);
-  }
 
-  const codeRef = Math.abs(TSH(date) % 100);
-
-  sendCode(codeRef);
   function goToQr() {
     router.replace("/qr");
   }
@@ -43,7 +32,7 @@ export default function Page() {
     event.preventDefault();
 
     const data = name;
-    if (code != String(codeRef)) {
+    if (code != String(codeGen())) {
       setState("ERROR");
       setErrorMessage("wrong code!");
       return;
