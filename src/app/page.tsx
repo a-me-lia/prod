@@ -16,15 +16,16 @@ export default function Page() {
   const [state, setState] = useState("IDLE");
   const [errorMessage, setErrorMessage] = useState("");
 
+  codeGen();
 
   function goToQr() {
-    router.replace("/qr");
+    router.push("/qr");
   }
   function goToViewNames() {
-    router.replace("/names");
+    router.push("/names");
   }
   function goToSignIn() {
-    router.replace("/");
+    router.push("/");
   }
 
 

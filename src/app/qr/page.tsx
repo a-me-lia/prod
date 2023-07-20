@@ -2,11 +2,14 @@ import { ImageOptimizerCache } from "next/dist/server/image-optimizer";
 import Image from "next/image";
 import Link from "next/link";
 import codeGen from "../codegen";
+import { getDatabase, ref, onValue } from "firebase/database";
+import firebase_app from "../api/firebase/config";
 
 export default function Page() {
 
 
-  const codeRef = codeGen();
+  let code = codeGen();
+
 
   return (
     <div className=" h-[calc(100dvh)]  xl:min-h-screen flex flex-col items-center bg-white">
@@ -17,8 +20,8 @@ export default function Page() {
         Back to entry
       </Link>
       <div></div>
-      <div className="absolute z-50 top-[64px] xl:top-[-96px] text-9xl  xl:text-[320px] text-red-500 font-bold">
-        {codeRef}
+      <div className="absolute z-50 top-[64px] xl:top-[-24px] text-9xl  xl:text-[320px] text-red-500 font-bold">
+        {code.toString()}
       </div>
       <div className="h-32"></div>
       <div className="relative mt-8 w-full xl:w-min xl:h-screen xl:aspect-square aspect-square ">

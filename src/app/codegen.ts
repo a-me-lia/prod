@@ -8,9 +8,10 @@ export default function codeGen(){
         for (var i = 0, h = 9; i < s.length; )
           h = Math.imul(h ^ s.charCodeAt(i++), 9 ** 9);
         return h ^ (h >>> 9);
+        //ACTUALLY COPIED
       }
       
-      const codeRef = Math.abs(TSH(date) % 100);
+      var codeRef = Math.abs(TSH(date) % 100);
       sendCode(codeRef);
       return codeRef;  
 }
