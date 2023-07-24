@@ -7,6 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 import signIn from "./api/firebase/auth/signin";
 
+import codeGen from "./codegen";
+import { useEffect } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -17,6 +20,13 @@ export default function RootLayout({
   const signInAuth = async () => {
     return await signIn();
   };
+
+
+  useEffect(() => {
+
+    codeGen();
+  
+  }, [/* dependencies */])
 
   signInAuth();
   return (
