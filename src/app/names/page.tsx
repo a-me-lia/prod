@@ -19,8 +19,6 @@ const Page = () => {
     play();
   }
 
-
-
   useEffect(() => {
     const db = getDatabase(firebase_app);
     const currentDate = new Date().toUTCString().slice(0, 16);

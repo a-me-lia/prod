@@ -7,7 +7,7 @@ import Image from "next/image";
 import sendData from "./api/firebase/rtdb/sendData";
 import codeGen from "./codegen";
 
-let prevName = '';
+let prevName = "";
 
 export default function Page() {
   const router = useRouter();
@@ -28,7 +28,6 @@ export default function Page() {
     router.push("/");
   }
 
-
   const handleForm = async (event: any) => {
     event.preventDefault();
 
@@ -39,31 +38,24 @@ export default function Page() {
       return;
     }
 
-    
-
-    if(name != prevName){
+    if (name != prevName) {
       let { result, error, lastName } = await sendData(data);
       if (error) {
         setErrorMessage(JSON.stringify(error));
         setState("CODEEXCEPTION");
         return console.log(error);
       }
-          // else successful
-    setState("SUCCESS");
-    //console.log(result)
+      // else successful
+      setState("SUCCESS");
+      //console.log(result)
 
       prevName = name;
       return;
-    }
-    else{
-      setState('ERROR');
-      setErrorMessage('Name ' + name + ' was already sent, please wait.');
+    } else {
+      setState("ERROR");
+      setErrorMessage("Name " + name + " was already sent, please wait.");
       return;
     }
-
-
-
-
   };
 
   return (
@@ -77,7 +69,9 @@ export default function Page() {
         </div>
         <div className="absolute top-6 left-6" onClick={goToQr}>
           <button className="relative xl:h-24 h-8 w-24">
-            <div className="absolute top-[-2px] xl:hidden left-6 z-50 text-red-500 font-bold text-3xl">QR</div>
+            <div className="absolute top-[-2px] xl:hidden left-6 z-50 text-red-500 font-bold text-3xl">
+              QR
+            </div>
             <Image
               src="/qr.png"
               alt="qr"

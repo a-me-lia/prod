@@ -1,18 +1,21 @@
-import { ImageOptimizerCache } from "next/dist/server/image-optimizer";
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import codeGen from "../codegen";
-import { getDatabase, ref, onValue } from "firebase/database";
-import firebase_app from "../api/firebase/config";
+import { useState, useEffect } from "react";
 
 export default function Page() {
 
+  const [code, setCode] = useState(0);
 
-  let code = codeGen();
+  useEffect(() => {
 
+    setCode(codeGen());
+  
+  }, [/* dependencies */])
 
   return (
-    <div className=" h-[calc(100dvh)]  xl:min-h-screen flex flex-col items-center bg-white">
+    <div className=" h-[calc(100dvh)] xl:min-h-screen flex flex-col items-center bg-white">
       <Link
         className="absolute z-50 left-2 top-2 border-2 border-opacity-30 rounded-lg border-black  px-2 py-1"
         href="/"

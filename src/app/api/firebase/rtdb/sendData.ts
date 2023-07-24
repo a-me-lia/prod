@@ -29,7 +29,6 @@ export default async function sendData(name: string) {
 
   if (name != "hello") {
     try {
-      
       const lastSnapshot = await get(child(ref(db), date + "/"));
       const lastValue = lastSnapshot.val();
 
@@ -56,12 +55,7 @@ export default async function sendData(name: string) {
         username: name,
         timestamp: timestamp,
       };
-        result = await set(ref(db, date + "/" + newindex), entry);
-      
-
-
-      
- 
+      result = await set(ref(db, date + "/" + newindex), entry);
     } catch (e: any) {
       error = e;
     }
