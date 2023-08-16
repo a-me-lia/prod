@@ -8,9 +8,11 @@ import Image from "next/image";
 import sendData from "./api/firebase/rtdb/sendData";
 import codeGen from "./codegen";
 import Menu from "./components/menu";
-import Switch from "react-switch";
-
+import { useContext } from "react";
 import { LanguageContext } from "./context/languagecontext";
+
+
+
 
 let prevName = "";
 
@@ -20,8 +22,8 @@ export default function Page() {
   const [code, setCode] = React.useState("");
   const [state, setState] = useState("IDLE");
   const [errorMessage, setErrorMessage] = useState("");
-  const [carolineIsAllergicToShrimp, setCarolineIsAllergicToShrimp] =
-    useState(false);
+
+  let isEn = useContext(LanguageContext);
 
   codeGen();
 
@@ -64,21 +66,9 @@ export default function Page() {
 
   return (
     <div className="  h-[calc(100dvh)] xl:min-h-screen  overflow-hidden text-black bg-white">
-      <label className="z-40 absolute top-3 right-4 ">
-        <Switch
-          onChange={() => setCarolineIsAllergicToShrimp(!carolineIsAllergicToShrimp)}
-          checked={carolineIsAllergicToShrimp}
-          offColor="#00C0FF"
-          onColor="#FF0000"
-          borderRadius={0}
-          height={36}
-          width={86}
-          uncheckedIcon={<div className=" h-9 flex flex-col items-center justify-center"><p className="text-[18px] text-white font-bold">ENG</p></div>}
-          checkedIcon={<div className=" h-9 flex flex-col items-center justify-center"><p className="text-[18px] text-white font-bold">中文</p></div>}
-        />
-      </label>
 
-      <LanguageContext.Provider value={carolineIsAllergicToShrimp}>
+
+      
       <div className="flex flex-col items-center ">
         <div className="relative h-20 w-48 mt-16">
           {" "}
@@ -91,10 +81,10 @@ export default function Page() {
             className="object-cover"
           ></Image>
         </div>
-        <h1 className="text-amber-600 font-bold text-md">{`${carolineIsAllergicToShrimp ? 'Summer Pickup' : '夏令营接娃'}`}</h1>
+        <h1 className="text-amber-600 font-bold text-md">{`${isEn ? 'Summer Pickup' : '夏令营接娃'}`}</h1>
         {/*<h1 className="text-amber-600 font-bold text-3xl mt-4">Sign in to enter name</h1>*/}
         <p className="text-purple-700 text-[16px] mt-10">
-        {`${carolineIsAllergicToShrimp ? 'Enter name(s) of child for pickup' : '请在以下输入孩子的名字和版上的密码'}`}
+        {`${isEn ? 'Enter name(s) of child for pickup' : '请在以下输入孩子的名字和版上的密码'}`}
         </p>
 
         <form
@@ -103,7 +93,7 @@ export default function Page() {
         >
           <label className="relative" htmlFor="name">
             <div className="absolute bg-white p-[0.5] text-[10px] text-slate-500 translate-x-2 -translate-y-2">
-            {`${carolineIsAllergicToShrimp ? 'Name（English Preferred)' : '名字 （最好英语姓名）'}`}
+            {`${isEn ? 'Name（English Preferred)' : '名字 （最好英语姓名）'}`}
             </div>
             <input
               className="border-2 rounded-lg py-1 px-2 w-[256px]"
@@ -120,7 +110,7 @@ export default function Page() {
             {" "}
             <label className="relative" htmlFor="code">
               <div className="absolute bg-white p-[0.5] text-[10px] text-slate-500 translate-x-2 -translate-y-2">
-              {`${carolineIsAllergicToShrimp ? 'code' : '密码'}`}
+              {`${isEn ? 'code' : '密码'}`}
               </div>
               <input
                 className="border-2 rounded-lg py-1 px-2 w-[48px]"
@@ -134,7 +124,7 @@ export default function Page() {
             </label>
             <button type="submit">
               <div className=" border-2 text-white font-bold text-lg border-purple-200 px-2 py-1 w-[192px] rounded-lg bg-purple-400 drop-shadow-xl hover:bg-slate-300 hover:drop-shadow-none transition-all duration-200">
-              {`${carolineIsAllergicToShrimp ? ' Submit' : '提交'}`}
+              {`${isEn ? ' Submit' : '提交'}`}
               </div>
             </button>
           </div>
@@ -154,7 +144,6 @@ export default function Page() {
         </div>
       </div>
 
-      </LanguageContext.Provider>
 
 
     </div>
