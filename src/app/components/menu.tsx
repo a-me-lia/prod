@@ -9,8 +9,8 @@ export default function Menu() {
 
   return (
     <div
-      className={`fixed top-0 w-full transition-all duration-1000 ease-in-out overflow-hidden  ${
-        active ? " z-50 h-80 bg-black opacity-[86%]" : "z-30 h-14"
+      className={`fixed  bg-opacity-[86%] top-0 w-full transition-all duration-1000 ease-in-out overflow-hidden  ${
+        active ? " z-50 h-80 bg-black" : "z-30 h-14"
       }`}
       onMouseLeave={() => setActive(false)}
     >
