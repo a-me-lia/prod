@@ -62,7 +62,7 @@ const Page = () => {
               className="flex flex-col text-2xl mt-4 mb-2 xl:w-full xl:mt-4 xl:mb-2 xl:text-5xl font-bold  text-black"
               key={index}
             >
-              <div className="flex flex-row justify-between items-baseline">
+              <div className="flex flex-row-reverse justify-between items-baseline">
                 <span>{entry.username}</span>
                 <span className="text-right font-normal text-sm  xl:text-2xl">
                   Timestamp: {entry.timestamp}
