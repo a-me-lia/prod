@@ -46,8 +46,8 @@ export const AuthContextProvider = ({ children }) => {
         </div>
       ) : user ||
         window.location.pathname == "/" ||
-        window.location.pathname == "/signin" ||
-        window.location.pathname == "/meirilunhuanmima" ? (
+        window.location.pathname == "/names" ||
+        window.location.pathname == "/qr" ? (
         children
       ) : (
         <div className="min-h-screen bg-white">

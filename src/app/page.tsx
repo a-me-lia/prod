@@ -3,9 +3,11 @@ import React, { FormEventHandler } from "react";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import signIn from "./api/firebase/auth/signin";
 import Image from "next/image";
 import sendData from "./api/firebase/rtdb/sendData";
 import codeGen from "./codegen";
+import Menu from "./components/menu";
 
 let prevName = "";
 
@@ -17,15 +19,13 @@ export default function Page() {
   const [errorMessage, setErrorMessage] = useState("");
 
   codeGen();
+  signIn("hinasato86@gmail.com", "123456");
 
   function goToQr() {
     router.push("/qr");
   }
   function goToViewNames() {
     router.push("/names");
-  }
-  function goToSignIn() {
-    router.push("/");
   }
 
   const handleForm = async (event: any) => {
@@ -60,29 +60,13 @@ export default function Page() {
 
   return (
     <div className="  h-[calc(100dvh)] xl:min-h-screen  overflow-hidden text-black bg-white">
+
       <div className="flex flex-col items-center ">
-        <div className="absolute top-6 right-6" onClick={goToViewNames}>
-          <button className="relative h-8 w-24">
-            <Image src="/live.webp" alt="live" sizes="100vw" fill></Image>
-          </button>
-          <p className="text-center">pickup list</p>
+        <div className="flex flex-row justify-between items-center w-full px-4 py-4">
+          <div></div>
         </div>
-        <div className="absolute top-6 left-6" onClick={goToQr}>
-          <button className="relative xl:h-24 h-8 w-24">
-            <div className="absolute top-[-2px] xl:hidden left-6 z-50 text-red-500 font-bold text-3xl">
-              QR
-            </div>
-            <Image
-              src="/qr.png"
-              alt="qr"
-              sizes="100vw"
-              fill
-              className="object-cover"
-            ></Image>
-          </button>
-          <p className="text-center">QR Code</p>
-        </div>
-        <div className="relative h-20 w-48 mt-24">
+
+        <div className="relative h-20 w-48 mt-16">
           {" "}
           <Image
             src="/css.png"
@@ -108,7 +92,7 @@ export default function Page() {
               Name (English Preferred)
             </div>
             <input
-              className="border-2 rounded-lg py-1 px-2 min-w-[256px]"
+              className="border-2 rounded-lg py-1 px-2 w-[256px]"
               onChange={(e) => setName(e.target.value)}
               required
               type="name"

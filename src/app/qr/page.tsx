@@ -1,27 +1,27 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import codeGen from "../codegen";
 import { useState, useEffect } from "react";
+import signIn from "../api/firebase/auth/signin";
 
 export default function Page() {
-
   const [code, setCode] = useState(0);
 
-  useEffect(() => {
+  useEffect(
+    () => {
+      setCode(codeGen());
+    },
+    [
+      /* dependencies */
+    ],
+  );
 
-    setCode(codeGen());
-  
-  }, [/* dependencies */])
+  signIn("hinasato86@gmail.com", "123456");
 
   return (
     <div className=" h-[calc(100dvh)] xl:min-h-screen flex flex-col items-center bg-white">
-      <Link
-        className="absolute z-50 left-2 top-2 border-2 border-opacity-30 rounded-lg border-black  px-2 py-1"
-        href="/"
-      >
-        Back to entry
-      </Link>
+
       <div></div>
       <div className="absolute z-50 top-[64px] xl:top-[-24px] text-9xl  xl:text-[320px] text-red-500 font-bold">
         {code.toString()}

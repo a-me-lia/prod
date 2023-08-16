@@ -10,7 +10,7 @@ export default function Custom404() {
         </h1>
         <h1>Page Not Found!</h1>
         <Link href="/" className="underline">
-          Back to Sign In
+          Back to Main
         </Link>
       </div>
       <div className="absolute bottom-0 w-full">

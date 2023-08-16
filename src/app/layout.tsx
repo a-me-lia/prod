@@ -1,14 +1,14 @@
 "use client";
+
 import "./globals.css";
 import { AuthContextProvider } from "./context/authcontext";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Link from "next/link";
-import Image from "next/image";
 import signIn from "./api/firebase/auth/signin";
 
 import codeGen from "./codegen";
 import { useEffect } from "react";
+import Menu from "./components/menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,18 +17,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const signInAuth = async () => {
-    return await signIn();
-  };
+  useEffect(
+    () => {
+      codeGen();
+    },
+    [
+      /* dependencies */
+    ],
+  );
 
-
-  useEffect(() => {
-
-    codeGen();
-  
-  }, [/* dependencies */])
-
-  signInAuth();
   return (
     <html lang="en">
       {/*
@@ -52,6 +49,7 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <AuthContextProvider>{children}</AuthContextProvider>
+        <Menu></Menu>
         <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
           Developed by Matthew Guo <br />
         </p>

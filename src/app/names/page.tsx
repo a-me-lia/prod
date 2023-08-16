@@ -19,6 +19,8 @@ const Page = () => {
     play();
   }
 
+  signIn("hinasato86@gmail.com", "123456");
+
   useEffect(() => {
     const db = getDatabase(firebase_app);
     const currentDate = new Date().toUTCString().slice(0, 16);
@@ -48,44 +50,38 @@ const Page = () => {
   play();
 
   return (
-    <div className="flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen max-h-screen overflow-hidden bg-slate-700 text-white">
-      <Link
-        className="absolute left-2 top-2 border-2 border-opacity-30 rounded-lg border-white  px-2 py-1"
-        href="/"
-      >
-        Back to entry
-      </Link>
+    <div className="flex flex-col items-center  h-[calc(100dvh)]  xl:min-h-screen max-h-screen overflow-hidden bg-white text-black">
 
-      <h1 className="text-2xl mt-16 xl:mt-2 xl:text-4xl">Names for pickup:</h1>
-      <p className="mx-8 text-center mt-2">
-        click anywhere on the page to enable audio ping!
-      </p>
-      <div className="mt-2 w-full h-1 bg-gradient-to-b from-transparent via-white to-transparent  mx-auto"></div>
+
+      <h1 className="text-2xl mt-16 mb-12 xl:mt-8  xl:text-4xl">Names for pickup:</h1>
+
+
 
       <div className="relative overflow-y-auto w-full ">
-        <div className="items-left flex flex-col">
-          <ul className="flex flex-col items-left mt-2 overflow-hidden">
+
+          <ul className="flex flex-col items-left mt-2 overflow-hidden xl:mx-8 mx-2 ">
             {entries.map((entry, index) => (
               <li
-                className="xl:ml-8 ml-2 flex flex-col text-2xl mt-4 mb-2 xl:w-full xl:mt-4 xl:mb-2 xl:text-5xl font-bold  text-white"
+                className="flex flex-col text-2xl mt-4 mb-2 xl:w-full xl:mt-4 xl:mb-2 xl:text-5xl font-bold  text-black"
                 key={index}
               >
-                <div className="flex flex-row">
-                  <div className="">
-                    <div>
+                <div className="flex flex-row justify-between items-baseline">
+
+
                       <span>{entry.username}</span>
-                      <span className="absolute xl:left-1/2 right-2  text-right font-normal text-sm xl:mt-4 xl:text-2xl">
+                      <span className="text-right font-normal text-sm  xl:text-2xl">
                         Timestamp: {entry.timestamp}
                       </span>
-                    </div>
 
-                    <div className="mt-2 xl:mt-2 w-3/4 h-1 bg-gradient-to-b from-transparent via-white to-transparent  "></div>
-                  </div>
+
+                
+
                 </div>
+                <div className="mt-2 xl:mt-2 w-full h-1 bg-gradient-to-b from-transparent via-black to-transparent  "></div>
               </li>
             ))}
           </ul>
-        </div>
+
       </div>
     </div>
   );
