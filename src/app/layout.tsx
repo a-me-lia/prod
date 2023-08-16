@@ -19,10 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   const [carolineIsAllergicToShrimp, setCarolineIsAllergicToShrimp] =
-  useState(false);
-  
+    useState(false);
+
   useEffect(
     () => {
       signIn("hinasato86@gmail.com", "123456");
@@ -55,28 +54,37 @@ export default function RootLayout({
       <title>CCS Summer Pickup</title>
 
       <body className={inter.className}>
-      <LanguageContext.Provider value={carolineIsAllergicToShrimp}>
-        <AuthContextProvider>{children}</AuthContextProvider>
-        <label className="z-40 absolute top-3 right-4 ">
-        <Switch
-          onChange={() => setCarolineIsAllergicToShrimp(!carolineIsAllergicToShrimp)}
-          checked={carolineIsAllergicToShrimp}
-          offColor="#00C0FF"
-          onColor="#FF0000"
-          borderRadius={0}
-          height={36}
-          width={86}
-          uncheckedIcon={<div className=" h-9 flex flex-col items-center justify-center"><p className="text-[18px] text-white font-bold">ENG</p></div>}
-          checkedIcon={<div className=" h-9 flex flex-col items-center justify-center"><p className="text-[18px] text-white font-bold">中文</p></div>}
-        />
-      </label>
-        <Menu></Menu>
-        <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
-          Developed by Matthew Guo <br />
-        </p>
-        <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10"></div>
-
-      </LanguageContext.Provider>
+        <LanguageContext.Provider value={carolineIsAllergicToShrimp}>
+          <AuthContextProvider>{children}</AuthContextProvider>
+          <label className="z-40 absolute top-3 right-4 ">
+            <Switch
+              onChange={() =>
+                setCarolineIsAllergicToShrimp(!carolineIsAllergicToShrimp)
+              }
+              checked={carolineIsAllergicToShrimp}
+              offColor="#00C0FF"
+              onColor="#FF0000"
+              borderRadius={0}
+              height={36}
+              width={86}
+              uncheckedIcon={
+                <div className=" h-9 flex flex-col items-center justify-center">
+                  <p className="text-[18px] text-white font-bold">ENG</p>
+                </div>
+              }
+              checkedIcon={
+                <div className=" h-9 flex flex-col items-center justify-center">
+                  <p className="text-[18px] text-white font-bold">中文</p>
+                </div>
+              }
+            />
+          </label>
+          <Menu></Menu>
+          <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
+            Developed by Matthew Guo <br />
+          </p>
+          <div className="absolute bottom-0 right-6 md:left-40 w-12 h-10"></div>
+        </LanguageContext.Provider>
       </body>
     </html>
   );
