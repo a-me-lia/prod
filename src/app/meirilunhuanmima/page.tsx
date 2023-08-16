@@ -16,7 +16,6 @@ export default function Page() {
 
   return (
     <div className="  h-[calc(100dvh)]  xl:min-h-screen flex flex-col items-center bg-white  text-black overflow-hidden">
-
       <h1 className="hidden lg:block mt-12 text-7xl font-bold text-center">
         TODAY'S CODE IS / 今天的密码是:
       </h1>

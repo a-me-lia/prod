@@ -19,6 +19,7 @@ export default function RootLayout({
 }) {
   useEffect(
     () => {
+      signIn("hinasato86@gmail.com", "123456");
       codeGen();
     },
     [

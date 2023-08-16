@@ -21,7 +21,6 @@ export default function Page() {
 
   return (
     <div className=" h-[calc(100dvh)] xl:min-h-screen flex flex-col items-center bg-white">
-
       <div></div>
       <div className="absolute z-50 top-[64px] xl:top-[-24px] text-9xl  xl:text-[320px] text-red-500 font-bold">
         {code.toString()}
