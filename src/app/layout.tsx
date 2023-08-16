@@ -35,7 +35,7 @@ export default function RootLayout({
       <head>
         <meta property="og:title" content="CCS Pickup App" />
         <meta
-          property="description"
+          property="og:description"
           content="The Cary Chinese School summer program pickup handler website"
         />
         <meta
