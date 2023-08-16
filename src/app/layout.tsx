@@ -56,7 +56,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <LanguageContext.Provider value={carolineIsAllergicToShrimp}>
           <AuthContextProvider>{children}</AuthContextProvider>
-          <label className="z-40 absolute top-3 right-4 ">
+          <label className="z-40 fixed top-3 right-4 ">
             <Switch
               onChange={() =>
                 setCarolineIsAllergicToShrimp(!carolineIsAllergicToShrimp)
