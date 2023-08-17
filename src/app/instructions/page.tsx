@@ -63,19 +63,19 @@ export default function Instructions() {
 
 </svg>
 </div><p>PDF <br/> 中文</p></div></Link>
-<div className='md:flex flex-row space-x-12   hidden'>
+{/*<div className='md:flex flex-row space-x-12   hidden'>
 <div className='relative w-[500px] h-[680px] '>
 <Image src='/EN.png' alt='' fill/>
 </div>
 <div className='relative w-[500px] h-[680px]  '>
 <Image src='/CN.png' alt='' fill/>
 </div>
-</div>
+</div>*/}
     </div>
-
+{/*
 <div className='relative w-[380px] h-[420px] mt-8 block md:hidden'>
 <Image src={`${isEn ? '/EN.png' : '/CN.png'}`} alt='' fill/>
-</div>
+</div>*/}
 
 
 
