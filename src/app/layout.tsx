@@ -6,6 +6,7 @@ import { LanguageContext } from "./context/languagecontext";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import signIn from "./api/firebase/auth/signin";
+import { usePathname } from 'next/navigation'
 
 import codeGen from "./codegen";
 import { useEffect, useState } from "react";
@@ -32,6 +33,8 @@ export default function RootLayout({
     ],
   );
 
+ const pathName = usePathname()
+
   return (
     <html lang="en">
       {/*
@@ -56,7 +59,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <LanguageContext.Provider value={carolineIsAllergicToShrimp}>
           <AuthContextProvider>{children}</AuthContextProvider>
-          <label className="z-40 fixed top-3 right-4 ">
+          <label className={`z-40 fixed top-3 right-4 ${pathName == '/instructions/cn' || pathName == '/instructions/en' ? 'hidden':'block'}`}>
             <Switch
               onChange={() =>
                 setCarolineIsAllergicToShrimp(!carolineIsAllergicToShrimp)
@@ -79,7 +82,8 @@ export default function RootLayout({
               }
             />
           </label>
-          <Menu></Menu>
+          <div className={`${pathName == '/instructions/cn' || pathName == '/instructions/en' ? 'hidden':'block'}`}>          <Menu></Menu></div>
+
           <p className="absolute bottom-2 left-2 w-2/3 text-slate-900 text-[10px]">
             Developed by Matthew Guo <br />
           </p>

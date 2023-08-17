@@ -10,7 +10,7 @@ export default function Instructions() {
   return (
   <div className=" ">
 
-    <div className=" flex flex-row p-4 justify-start space-x-12  space-y-0 mt-24">
+    <div className=" flex flex-row p-4 justify-start space-x-12  space-y-0 sm:mt-14 mt-24">
         <Link href='/instructions/en'><div className="flex flex-row space-x-4 align-middle"><div className="relative h-12 w-12">
 
 
@@ -63,11 +63,22 @@ export default function Instructions() {
 
 </svg>
 </div><p>PDF <br/> 中文</p></div></Link>
+<div className='md:flex flex-row space-x-12   hidden'>
+<div className='relative w-[500px] h-[680px] '>
+<Image src='/EN.png' alt='' fill/>
+</div>
+<div className='relative w-[500px] h-[680px]  '>
+<Image src='/CN.png' alt='' fill/>
+</div>
+</div>
     </div>
 
-<div className='relative w-full h-[420px] mt-8'>
+<div className='relative w-[380px] h-[420px] mt-8 block md:hidden'>
 <Image src={`${isEn ? '/EN.png' : '/CN.png'}`} alt='' fill/>
 </div>
+
+
+
 
     
     </div>)
